@@ -15,7 +15,8 @@
   "author": "mccrodp",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.1"
+    "express": "^4.13.1",
+    "mysql": "^2.14.1"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

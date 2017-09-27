@@ -1,6 +1,8 @@
 var express = require('express')
 var app = express()
 
+var DB = require('./db')
+
 app.get('/', function (req, res) {
   res.send('This is working!!!')
 })
