@@ -15,7 +15,9 @@
   "author": "mccrodp",
   "license": "ISC",
   "dependencies": {
+    "bookshelf": "0.10.2",
     "express": "^4.13.1",
+    "knex": "0.12.9",
     "mysql": "^2.14.1"
   },
   "devDependencies": {

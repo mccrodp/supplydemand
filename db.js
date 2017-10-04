@@ -1,19 +1,16 @@
-var mysql = require('mysql')
-
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'supplydemand',
-  password: 'supplydemand',
-  database: 'supplydemand',
-  port: '3307'
+var knex = require('knex')({
+  client: 'mysql',
+  connection: {
+    host: 'localhost',
+    user: 'supplydemand',
+    password: 'supplydemand',
+    database: 'supplydemand',
+    charset: 'utf8',
+    port: '3307'
+  }
 })
+var db = require('bookshelf')(knex)
 
-connection.connect()
-
-connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-  if (err) throw err
-
-  console.log('The applicants are: ', rows[0].solution)
+db.knex.raw('SELECT 1 + 1 AS solution').then(function (resp) {
+  console.log(resp)
 })
-
-connection.end()
