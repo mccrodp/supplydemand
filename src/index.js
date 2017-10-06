@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 
-var DB = require('./db')
+var DB = require('./db/bookshelf')
 
 app.get('/', function (req, res) {
   res.send('This is working!!!')
