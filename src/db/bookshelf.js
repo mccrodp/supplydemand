@@ -11,6 +11,6 @@ var knex = require('knex')({
 })
 var db = require('bookshelf')(knex)
 
-db.knex.raw('SELECT * FROM test').then(function (resp) {
+db.knex.raw('SELECT * FROM supplydemand').then(function (resp) {
   console.log(resp)
 })
