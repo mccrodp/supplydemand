@@ -4,3 +4,4 @@ npm-debug.log
 .idea*
 env/mysql.env
 data
+dist/bundle.js
