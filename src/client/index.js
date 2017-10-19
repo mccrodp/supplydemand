@@ -1,18 +1,28 @@
-import _ from 'lodash'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import InputRange from 'react-input-range'
 
-function component () {
-  var element = document.createElement('div')
+class App extends React.Component {
+  constructor (props) {
+    super(props)
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ')
+    this.state = {
+      value: { min: 2, max: 10 }
+    }
+  }
 
-  ReactDOM.render(<h1 > Hello, world! </h1>,
-    document.getElementById('root')
-  )
-
-  return element
+  render () {
+    return (
+      <InputRange
+        maxValue={20}
+        minValue={0}
+        value={this.state.value}
+        onChange={value => this.setState({ value })} />
+    )
+  }
 }
 
-document.body.appendChild(component())
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)
