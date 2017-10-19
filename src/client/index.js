@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import InputRange from 'react-input-range'
+import './styles.scss'
 
 class App extends React.Component {
   constructor (props) {
