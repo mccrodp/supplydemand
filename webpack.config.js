@@ -6,12 +6,13 @@ const sassLoaders = [
   'sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
 ]
 
-const global = path.resolve(path.join(__dirname, '..'))
+const global = path.resolve(__dirname)
 
 module.exports = {
   debug: true,
   entry: [
-    'webpack-hot-middleware/client'
+    'webpack-hot-middleware/client',
+    path.join(__dirname, 'src', 'client', 'index.js')
   ],
   devtool: 'inline-source-map',
   output: {
