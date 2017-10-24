@@ -1,3 +1,15 @@
+@import 'input-range-variables';
+@import 'input-range-slider';
+@import 'input-range-label';
+@import 'input-range-label-container';
+@import 'input-range-track';
+
+.input-range {
+  height: $input-range-slider-height;
+  position: relative;
+  width: 100%;
+}
+
 .form {
   margin: 0 auto;
   padding: 100px 30px 0;
@@ -8,5 +20,6 @@
 }
 
 .input-range {
+  margin-top: 5em;
   margin-bottom: 160px;
 }

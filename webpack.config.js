@@ -11,7 +11,7 @@ const global = path.resolve(__dirname)
 module.exports = {
   debug: true,
   entry: [
-    'webpack-hot-middleware/client',
+    './src/client/index.js',
     path.join(__dirname, 'src', 'client', 'index.js')
   ],
   devtool: 'inline-source-map',
