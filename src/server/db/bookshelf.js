@@ -11,6 +11,14 @@ var knex = require('knex')({
 })
 var db = require('bookshelf')(knex)
 
-db.knex.raw('SELECT * FROM supplydemand').then(function (resp) {
-  console.log(resp)
+// db.knex.raw('SELECT * FROM tech').then(function (resp) {
+//   console.log(resp)
+// })
+
+const TechModel = db.Model.extend({
+  tableName: 'tech'
 })
+
+module.exports = {
+  TechModel
+}
