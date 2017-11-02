@@ -1,8 +1,9 @@
 exports.up = function (knex, Promise) {
   return Promise.all([
-    knex.schema.createTable('supplydemand', (table) => {
+    knex.schema.createTable('tech', (table) => {
       table.increments()
-      table.string('tech').unique().notNullable()
+      table.string('machine_name').unique().notNullable()
+      table.string('display_name').notNullable()
       table.integer('supply').unsigned().notNullable()
       table.integer('demand').unsigned().notNullable()
     })
@@ -11,6 +12,6 @@ exports.up = function (knex, Promise) {
 
 exports.down = function (knex, Promise) {
   return Promise.all([
-    knex.schema.dropTableIfExists('supplydemand')
+    knex.schema.dropTableIfExists('tech')
   ])
 }
