@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import InputRange from 'react-input-range'
 import './styles.scss'
 
-class ExampleApp extends React.Component {
+class SupplyDemandApp extends React.Component {
   constructor (props) {
     super(props)
 
@@ -14,10 +14,6 @@ class ExampleApp extends React.Component {
       value4: {
         min: 5,
         max: 10
-      },
-      value5: {
-        min: 3,
-        max: 7
       }
     }
   }
@@ -25,6 +21,7 @@ class ExampleApp extends React.Component {
   render () {
     return (
       <form className='form'>
+        <label>React</label>
         <InputRange
           maxValue={20}
           minValue={0}
@@ -32,6 +29,7 @@ class ExampleApp extends React.Component {
           onChange={value => this.setState({ value })}
           onChangeComplete={value => console.log(value)} />
 
+        <label>Node</label>
         <InputRange
           maxValue={20}
           minValue={0}
@@ -40,6 +38,7 @@ class ExampleApp extends React.Component {
           onChange={value => this.setState({ value })}
           onChangeComplete={value => console.log(value)} />
 
+        <label>PHP</label>
         <InputRange
           maxValue={20}
           minValue={0}
@@ -48,27 +47,21 @@ class ExampleApp extends React.Component {
           onChange={value => this.setState({ value3: value })}
           onChangeComplete={value => console.log(value)} />
 
+        <label>Angular</label>
         <InputRange
           maxValue={20}
           minValue={0}
-          formatLabel={value => `${value} kg`}
+          formatLabel={value => `${value} devs`}
           value={this.state.value4}
           onChange={value => this.setState({ value4: value })}
           onChangeComplete={value => console.log(value)} />
 
-        <InputRange
-          draggableTrack
-          maxValue={20}
-          minValue={0}
-          onChange={value => this.setState({ value5: value })}
-          onChangeComplete={value => console.log(value)}
-          value={this.state.value5} />
       </form>
     )
   }
 }
 
 ReactDOM.render(
-  <ExampleApp />,
+  <SupplyDemandApp />,
   document.getElementById('app')
 )

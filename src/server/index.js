@@ -7,21 +7,16 @@ app.get('/', function (req, res) {
   res.send('This is working!!!')
 })
 
-app.get('/test', function (req, res) {
-  res.send('This also working')
-})
-
 app.get('/tech/:tech', function (req, res) {
-  var tech = byMachineName(req.params.tech)
-  console.log(tech)
-  res.send('This tech is working: ' + tech)
+  db.TechModel.where('machine_name', req.params.tech).fetch().then(function (tech) {
+    res.send('<h1>' + tech.get('display_name') + '</h1>' +
+    '<br> <strong>Supply:</strong> ' + tech.get('supply') +
+    '<br> <strong>Demand:</strong> ' + tech.get('demand'))
+  }).catch(function (err) {
+    console.error(err)
+    res.end()
+  })
 })
-
-function byMachineName (id) {
-  return db.TechModel
-    .where('machine_name', id)
-    .fetch()
-}
 
 var server = app.listen(3000, function () {
   console.log('Server running on http://localhost:' + server.address().port)
