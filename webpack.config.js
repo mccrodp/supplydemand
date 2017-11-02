@@ -9,7 +9,7 @@ module.exports = {
     './src/client/index.js',
     path.join(__dirname, 'src', 'client', 'index.js')
   ],
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   output: {
     path: path.join(global, 'dist'),
     filename: 'bundle.js',
