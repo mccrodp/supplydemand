@@ -16,44 +16,46 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
-    new ExtractTextPlugin({ allChunks: true, filename: 'style.css' }),
+    new ExtractTextPlugin({
+      allChunks: true,
+      filename: 'style.css'
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
   ],
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loaders: ['babel-loader'],
-        exclude: /node_modules/,
-        include: global
-      },
-      {
-        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file-loader?name=fonts/[name].[ext]&context=../assets/fonts',
-        include: global
-      },
-      {
-        test: /\.(gif|png|jpe?g|ico)(\?[a-z0-9]+)?$/i,
-        loader: 'file-loader?name=img/[name].[ext]&context=../assets/img',
-        include: global
-      },
-      {
-        test: /\.css?$/,
-        loaders: ExtractTextPlugin.extract('style-loader', 'css-loader'),
-        include: global
-      },
-      {
-        test: /\.scss?$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?sourceMap',
-            'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
-          ]
-        })
-      }
+    rules: [{
+      test: /\.js$/,
+      loaders: ['babel-loader'],
+      exclude: /node_modules/,
+      include: global
+    },
+    {
+      test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+      loader: 'file-loader?name=fonts/[name].[ext]&context=../assets/fonts',
+      include: global
+    },
+    {
+      test: /\.(gif|png|jpe?g|ico)(\?[a-z0-9]+)?$/i,
+      loader: 'file-loader?name=img/[name].[ext]&context=../assets/img',
+      include: global
+    },
+    {
+      test: /\.css?$/,
+      loaders: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+      include: global
+    },
+    {
+      test: /\.scss?$/,
+      loader: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader?sourceMap',
+          'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
+        ]
+      })
+    }
     ]
   },
   resolve: {
