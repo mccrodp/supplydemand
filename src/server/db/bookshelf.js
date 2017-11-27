@@ -9,15 +9,22 @@ var knex = require('knex')({
     port: '3307'
   }
 })
-var db = require('bookshelf')(knex)
+
+const BookshelfFactory = require('bookshelf')
+
+const bookshelf = BookshelfFactory(knex)
+
+module.exports = bookshelf
+
+// var db = require('bookshelf')(knex)
 
 // db.knex.raw('SELECT * FROM tech').then(function (resp) {
 //   console.log(resp)
 // })
 
-const TechModel = db.Model.extend({
-  tableName: 'tech'
-})
+// const TechModel = db.Model.extend({
+//   tableName: 'tech'
+// })
 
 // TechModel.where('machine_name', 'react').fetch().then(function (tech) {
 //   console.log(tech.toJSON())
@@ -25,6 +32,6 @@ const TechModel = db.Model.extend({
 //   console.error(err)
 // })
 
-module.exports = {
-  TechModel
-}
+// module.exports = {
+//   TechModel
+// }
