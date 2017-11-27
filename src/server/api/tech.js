@@ -8,7 +8,7 @@ function getAllTech () : Promise<TechItem> {
 }
 
 function getTech (name) : Promise<TechItem> {
-  return TechModel.where('machine_name', name)
+  return TechModel.where('machine_name', name).fetchAll().then(tech => tech.toJSON())
 }
 
 module.exports = {

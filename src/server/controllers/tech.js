@@ -26,20 +26,27 @@ const handleApiError = (res: $Response, err: Error) => {
  * # Response
  *    Object with tech
  */
-exports.getAllTech = function (req: $Request, res: $Response) {
+function getAllTech (req: $Request, res: $Response) {
   api.tech.getAllTech()
     .then(tech => res.send(tech))
     .catch((err: APIErrorType) => handleApiError(res, err))
 }
 
 /**
- * Get tech
+ * Get specific tech
  * # Response
  *    Object with tech
  */
-exports.getTech = function (req: $Request, res: $Response) {
-  console.log(req.params.tech)
+function getTech (req: $Request, res: $Response) {
   api.tech.getTech(req.params.tech)
     .then(tech => res.send(tech))
     .catch((err: APIErrorType) => handleApiError(res, err))
+}
+
+/**
+ * Fn exports.
+ */
+module.exports = {
+  getAllTech,
+  getTech
 }
